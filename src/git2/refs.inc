@@ -737,7 +737,7 @@ function git_reference_normalize_name(buffer_out: PAnsiChar; buffer_size: size_t
  * @return 0 on success, GIT_EAMBIGUOUS, GIT_ENOTFOUND or an error code
  *)
 
-function git_reference_peel(out_: PPgit_object; ref: Pgit_reference; type_: git_object_t): Integer; cdecl; external libgit2_dll;
+function git_reference_peel(out out_: Pgit_object; ref: Pgit_reference; type_: git_object_t): Integer; cdecl; external libgit2_dll;
 
 (**
  * Ensure the reference name is well-formed.

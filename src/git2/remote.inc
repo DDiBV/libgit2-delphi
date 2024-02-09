@@ -417,7 +417,7 @@ function git_push_options_init(opts: Pgit_push_options; version: Cardinal): Inte
  * @return 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code
  *)
 
-function git_remote_create(out_: PPgit_remote; repo: Pgit_repository;
+function git_remote_create(out out_: Pgit_remote; repo: Pgit_repository;
   name_, url: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -488,7 +488,7 @@ function git_remote_create_options_init(opts: Pgit_remote_create_options; versio
  * @return 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code
  *)
 
-function git_remote_create_with_opts(out_: PPgit_remote; url: PAnsiChar;
+function git_remote_create_with_opts(out out_: Pgit_remote; url: PAnsiChar;
   opts: Pgit_remote_create_options): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -503,7 +503,7 @@ function git_remote_create_with_opts(out_: PPgit_remote; url: PAnsiChar;
  * @return 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code
  *)
 
-function git_remote_create_with_fetchspec(out_: PPgit_remote; repo: Pgit_repository;
+function git_remote_create_with_fetchspec(out out_: Pgit_remote; repo: Pgit_repository;
   name_, url, fetch: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -518,7 +518,7 @@ function git_remote_create_with_fetchspec(out_: PPgit_remote; repo: Pgit_reposit
  * @return 0 or an error code
  *)
 
-function git_remote_create_anonymous(out_: PPgit_remote; repo: Pgit_repository;
+function git_remote_create_anonymous(out out_: Pgit_remote; repo: Pgit_repository;
   url: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -536,7 +536,7 @@ function git_remote_create_anonymous(out_: PPgit_remote; repo: Pgit_repository;
  * @return 0 or an error code
  *)
 
-function git_remote_create_detached(out_: PPgit_remote; url: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_remote_create_detached(out out_: Pgit_remote; url: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Get the information for a particular remote
@@ -550,7 +550,7 @@ function git_remote_create_detached(out_: PPgit_remote; url: PAnsiChar): Integer
  * @return 0, GIT_ENOTFOUND, GIT_EINVALIDSPEC or an error code
   *)
 
-function git_remote_lookup(out_: PPgit_remote; repo: Pgit_repository; name_: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_remote_lookup(out out_: Pgit_remote; repo: Pgit_repository; name_: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Create a copy of an existing remote.  All internal strings are also
@@ -752,7 +752,7 @@ function git_remote_get_refspec(remote: Pgit_remote; n: size_t): Pgit_refspec; c
  * @return 0 on success, or an error code
  *)
 
-function git_remote_ls(out_: PPPgit_remote_head; size: Psize_t; remote: Pgit_remote): Integer; cdecl; external libgit2_dll;
+function git_remote_ls(out out_: PPgit_remote_head; size: Psize_t; remote: Pgit_remote): Integer; cdecl; external libgit2_dll;
 
 (**
  * Check whether the remote is connected
@@ -810,7 +810,7 @@ procedure git_remote_free(remote: Pgit_remote); cdecl; external libgit2_dll;
  * @return 0 or an error code
  *)
 
-function git_remote_list(out_: Pgit_strarray; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_remote_list(out out_: git_strarray; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Remote creation options structure
@@ -1125,7 +1125,7 @@ function git_remote_delete(repo: Pgit_repository; name_: PAnsiChar): Integer; cd
  * or none of them point to HEAD's commit, or an error message.
  *)
 
-function git_remote_default_branch(out_: Pgit_buf; remote: Pgit_remote): Integer; cdecl; external libgit2_dll;
+function git_remote_default_branch(out out_: git_buf; remote: Pgit_remote): Integer; cdecl; external libgit2_dll;
 
 (** @}  *)
 

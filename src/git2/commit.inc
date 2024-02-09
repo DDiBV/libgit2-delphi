@@ -379,7 +379,7 @@ function git_commit_create(id: Pgit_oid; repo: Pgit_repository; update_ref: PAns
  * @see git_commit_create
   *)
 
-function git_commit_create_v(id: Pgit_oid; repo: Pgit_repository; update_ref: PAnsiChar;
+function git_commit_create_v(out id: git_oid; repo: Pgit_repository; update_ref: PAnsiChar;
   author, committer: Pgit_signature; message_encoding, message: PAnsiChar; tree:
   Pgit_tree; parent_count: size_t): Integer; cdecl; varargs; external libgit2_dll;
 

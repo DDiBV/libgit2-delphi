@@ -9,7 +9,7 @@
  * @return 0 or an error code
  *)
 
-function git_worktree_list(out_: Pgit_strarray; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_worktree_list(out out_: git_strarray; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Lookup a working tree by its name for a given repository

@@ -15,7 +15,7 @@
  * @return 0 or an error code
  *)
 
-function git_tree_lookup(out_: PPgit_tree; repo: Pgit_repository; id: Pgit_oid): Integer; cdecl; external libgit2_dll;
+function git_tree_lookup(out out_: Pgit_tree; repo: Pgit_repository; id: Pgit_oid): Integer; cdecl; external libgit2_dll;
 
 (**
  * Lookup a tree object from the repository,
@@ -30,7 +30,7 @@ function git_tree_lookup(out_: PPgit_tree; repo: Pgit_repository; id: Pgit_oid):
  * @return 0 or an error code
  *)
 
-function git_tree_lookup_prefix(out_: PPgit_tree; repo: Pgit_repository; id: Pgit_oid;
+function git_tree_lookup_prefix(out out_: Pgit_tree; repo: Pgit_repository; id: Pgit_oid;
   len: size_t): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -127,7 +127,7 @@ function git_tree_entry_byid(tree: Pgit_tree; id: Pgit_oid): Pgit_tree_entry; cd
  * @return 0 on success; GIT_ENOTFOUND if the path does not exist
  *)
 
-function git_tree_entry_bypath(out_: PPgit_tree_entry; root: Pgit_tree; path: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_tree_entry_bypath(out out_: Pgit_tree_entry; root: Pgit_tree; path: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Duplicate a tree entry
@@ -223,7 +223,7 @@ function git_tree_entry_cmp(e1, e2: Pgit_tree_entry): Integer; cdecl; external l
  * @return 0 or an error code
  *)
 
-function git_tree_entry_to_object(object_out: PPgit_object; repo: Pgit_repository;
+function git_tree_entry_to_object(out object_out: Pgit_object; repo: Pgit_repository;
   entry: Pgit_tree_entry): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -244,7 +244,7 @@ function git_tree_entry_to_object(object_out: PPgit_object; repo: Pgit_repositor
  * @return 0 on success; error code otherwise
  *)
 
-function git_treebuilder_new(out_: PPgit_treebuilder; repo: Pgit_repository;
+function git_treebuilder_new(out out_: Pgit_treebuilder; repo: Pgit_repository;
   source: Pgit_tree): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -319,7 +319,7 @@ function git_treebuilder_get(bld: Pgit_treebuilder; filename: PAnsiChar): Pgit_t
  * @return 0 or an error code
  *)
 
-function git_treebuilder_insert(out_: PPgit_tree_entry; bld: Pgit_treebuilder; filename: PAnsiChar;
+function git_treebuilder_insert(out out_: Pgit_tree_entry; bld: Pgit_treebuilder; filename: PAnsiChar;
   id: Pgit_oid; filemode: git_filemode_t): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -415,7 +415,7 @@ function git_tree_walk(tree: Pgit_tree; mode: git_treewalk_mode; callback: git_t
  * @return 0
  *)
 
-function git_tree_dup(out_: PPgit_tree; source: Pgit_tree): Integer; cdecl; external libgit2_dll;
+function git_tree_dup(out out_: Pgit_tree; source: Pgit_tree): Integer; cdecl; external libgit2_dll;
 
 (**
  * The kind of update to perform
@@ -468,7 +468,7 @@ type
 
 type
   Pgit_tree_update = ^git_tree_update;
-function git_tree_create_updated(out_: Pgit_oid; repo: Pgit_repository; baseline: Pgit_tree;
+function git_tree_create_updated(out out_: git_oid; repo: Pgit_repository; baseline: Pgit_tree;
   nupdates: size_t; updates: Pgit_tree_update): Integer; cdecl; external libgit2_dll;
 
 (** @}  *)

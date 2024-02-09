@@ -338,7 +338,7 @@ function git_index_read_tree(index_: Pgit_index; tree: Pgit_tree): Integer; cdec
  * or an error code
  *)
 
-function git_index_write_tree(out_: Pgit_oid; index_: Pgit_index): Integer; cdecl; external libgit2_dll;
+function git_index_write_tree(out out_: git_oid; index_: Pgit_index): Integer; cdecl; external libgit2_dll;
 
 (**
  * Write the index as a tree to the given repository
@@ -506,7 +506,7 @@ function git_index_entry_is_conflict(entry: Pgit_index_entry): Integer; cdecl; e
  * @return 0 or an error code.
  *)
 
-function git_index_iterator_new(iterator_out: PPgit_index_iterator; index_: Pgit_index): Integer; cdecl; external libgit2_dll;
+function git_index_iterator_new(out iterator_out: Pgit_index_iterator; index_: Pgit_index): Integer; cdecl; external libgit2_dll;
 
 (**
  * Return the next index entry in-order from the iterator.
@@ -773,7 +773,7 @@ function git_index_conflict_add(index_: Pgit_index;
  * @return 0 or an error code
  *)
 
-function git_index_conflict_get(ancestor_out, our_out, their_out: PPgit_index_entry;
+function git_index_conflict_get(out ancestor_out, our_out, their_out: Pgit_index_entry;
   index_: Pgit_index; path: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -814,7 +814,7 @@ function git_index_has_conflicts(index_: Pgit_index): Integer; cdecl; external l
  * @return 0 or an error code
  *)
 
-function git_index_conflict_iterator_new(iterator_out: PPgit_index_conflict_iterator;
+function git_index_conflict_iterator_new(out iterator_out: Pgit_index_conflict_iterator;
   index_: Pgit_index): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -829,7 +829,7 @@ function git_index_conflict_iterator_new(iterator_out: PPgit_index_conflict_iter
  *         (negative value)
  *)
 
-function git_index_conflict_next(ancestor_out, our_out, their_out: PPgit_index_entry;
+function git_index_conflict_next(out ancestor_out, our_out, their_out: Pgit_index_entry;
   iterator: Pgit_index_conflict_iterator): Integer; cdecl; external libgit2_dll;
 
 (**

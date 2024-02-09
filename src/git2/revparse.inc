@@ -22,7 +22,7 @@
  * @return 0 on success, GIT_ENOTFOUND, GIT_EAMBIGUOUS, GIT_EINVALIDSPEC or an error code
  *)
 
-function git_revparse_single(out_: PPgit_object; repo: Pgit_repository; spec: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_revparse_single(out out_: Pgit_object; repo: Pgit_repository; spec: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Find a single object and intermediate reference by a revision string.
@@ -46,7 +46,7 @@ function git_revparse_single(out_: PPgit_object; repo: Pgit_repository; spec: PA
  * or an error code
  *)
 
-function git_revparse_ext(object_out: PPgit_object; reference_out: PPgit_reference; repo: Pgit_repository;
+function git_revparse_ext(out object_out: Pgit_object; out reference_out: Pgit_reference; repo: Pgit_repository;
   spec: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**

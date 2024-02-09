@@ -20,7 +20,7 @@
  * @return 0 or an error code
  *)
 
-function git_repository_open(out_: PPgit_repository; path: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_repository_open(out out_: Pgit_repository; path: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Open working tree as a repository
@@ -33,7 +33,7 @@ function git_repository_open(out_: PPgit_repository; path: PAnsiChar): Integer; 
  * @return 0 or an error code
  *)
 
-function git_repository_open_from_worktree(out_: PPgit_repository; wt: Pgit_worktree): Integer; cdecl; external libgit2_dll;
+function git_repository_open_from_worktree(out out_: Pgit_repository; wt: Pgit_worktree): Integer; cdecl; external libgit2_dll;
 
 (**
  * Create a "fake" repository to wrap an object database
@@ -47,7 +47,7 @@ function git_repository_open_from_worktree(out_: PPgit_repository; wt: Pgit_work
  * @return 0 or an error code
  *)
 
-function git_repository_wrap_odb(out_: PPgit_repository; odb: Pgit_odb): Integer; cdecl; external libgit2_dll;
+function git_repository_wrap_odb(out out_: Pgit_repository; odb: Pgit_odb): Integer; cdecl; external libgit2_dll;
 
 (**
  * Look for a git repository and copy its path in the given buffer.
@@ -76,7 +76,7 @@ function git_repository_wrap_odb(out_: PPgit_repository; odb: Pgit_odb): Integer
  * @return 0 or an error code
  *)
 
-function git_repository_discover(out_: Pgit_buf; start_path: PAnsiChar; across_fs: Integer;
+function git_repository_discover(out out_: git_buf; start_path: PAnsiChar; across_fs: Integer;
   ceiling_dirs: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -148,7 +148,7 @@ type
    *        (such as repo corruption or system errors).
    *)
 
-function git_repository_open_ext(out_: PPgit_repository; path: PAnsiChar; flags: Cardinal;
+function git_repository_open_ext(out out_: Pgit_repository; path: PAnsiChar; flags: Cardinal;
   ceiling_dirs: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -163,7 +163,7 @@ function git_repository_open_ext(out_: PPgit_repository; path: PAnsiChar; flags:
  * @return 0 on success, or an error code
  *)
 
-function git_repository_open_bare(out_: PPgit_repository; bare_path: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_repository_open_bare(out out_: Pgit_repository; bare_path: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Free a previously allocated repository
@@ -195,7 +195,7 @@ procedure git_repository_free(repo: Pgit_repository); cdecl; external libgit2_dl
  * @return 0 or an error code
  *)
 
-function git_repository_init(out_: PPgit_repository; path: PAnsiChar;
+function git_repository_init(out out_: Pgit_repository; path: PAnsiChar;
   is_bare: Cardinal): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -367,7 +367,7 @@ function git_repository_init_options_init(opts: Pgit_repository_init_options;
  * @return 0 or an error code on failure.
  *)
 
-function git_repository_init_ext(out_: PPgit_repository; repo_path: PAnsiChar;
+function git_repository_init_ext(out_out_: Pgit_repository; repo_path: PAnsiChar;
   opts: Pgit_repository_init_options): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -384,7 +384,7 @@ function git_repository_init_ext(out_: PPgit_repository; repo_path: PAnsiChar;
  * branch, GIT_ENOTFOUND when HEAD is missing; an error code otherwise
  *)
 
-function git_repository_head(out_: PPgit_reference; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_head(out out_: Pgit_reference; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Retrieve the referenced HEAD for the worktree
@@ -395,7 +395,7 @@ function git_repository_head(out_: PPgit_reference; repo: Pgit_repository): Inte
  * @return 0 when successful, error-code otherwise
  *)
 
-function git_repository_head_for_worktree(out_: PPgit_reference; repo: Pgit_repository;
+function git_repository_head_for_worktree(out out_: Pgit_reference; repo: Pgit_repository;
   name_: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -491,7 +491,7 @@ type
    * @return 0, GIT_ENOTFOUND if the path cannot exist or an error code
    *)
 
-function git_repository_item_path(out_: Pgit_buf; repo: Pgit_repository;
+function git_repository_item_path(out out_: git_buf; repo: Pgit_repository;
   item: git_repository_item_t): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -585,7 +585,7 @@ function git_repository_is_worktree(repo: Pgit_repository): Integer; cdecl; exte
  * @return 0, or an error code
  *)
 
-function git_repository_config(out_: PPgit_config; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_config(out out_: Pgit_config; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Get a snapshot of the repository's configuration
@@ -602,7 +602,7 @@ function git_repository_config(out_: PPgit_config; repo: Pgit_repository): Integ
  * @return 0, or an error code
  *)
 
-function git_repository_config_snapshot(out_: PPgit_config; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_config_snapshot(out out_: Pgit_config; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Get the Object Database for this repository.
@@ -619,7 +619,7 @@ function git_repository_config_snapshot(out_: PPgit_config; repo: Pgit_repositor
  * @return 0, or an error code
  *)
 
-function git_repository_odb(out_: PPgit_odb; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_odb(out out_: Pgit_odb; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Get the Reference Database Backend for this repository.
@@ -636,7 +636,7 @@ function git_repository_odb(out_: PPgit_odb; repo: Pgit_repository): Integer; cd
  * @return 0, or an error code
  *)
 
-function git_repository_refdb(out_: PPgit_refdb; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_refdb(out out_: Pgit_refdb; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Get the Index file for this repository.
@@ -653,7 +653,7 @@ function git_repository_refdb(out_: PPgit_refdb; repo: Pgit_repository): Integer
  * @return 0, or an error code
  *)
 
-function git_repository_index(out_: PPgit_index; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_index(out out_: Pgit_index; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Retrieve git's prepared message
@@ -672,7 +672,7 @@ function git_repository_index(out_: PPgit_index; repo: Pgit_repository): Integer
  * @return 0, GIT_ENOTFOUND if no message exists or an error code
  *)
 
-function git_repository_message(out_: Pgit_buf; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_repository_message(out out_: git_buf; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Remove git's prepared message.
@@ -782,7 +782,7 @@ function git_repository_mergehead_foreach(repo: Pgit_repository; callback: git_r
  * @return 0 on success, or an error code
  *)
 
-function git_repository_hashfile(out_: Pgit_oid; repo: Pgit_repository; path: PAnsiChar;
+function git_repository_hashfile(out out_: git_oid; repo: Pgit_repository; path: PAnsiChar;
   type_: git_object_t; as_path: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**

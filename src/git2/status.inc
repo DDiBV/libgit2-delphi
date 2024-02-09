@@ -353,7 +353,7 @@ function git_status_file(status_flags: PCardinal; repo: Pgit_repository;
  * @return 0 on success or error code
  *)
 
-function git_status_list_new(out_: PPgit_status_list; repo: Pgit_repository;
+function git_status_list_new(out out_: Pgit_status_list; repo: Pgit_repository;
   opts: Pgit_status_options): Integer; cdecl; external libgit2_dll;
 
 (**

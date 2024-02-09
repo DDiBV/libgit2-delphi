@@ -22,7 +22,7 @@
  * @return 0 or an error code
  *)
 
-function git_signature_new(out_: PPgit_signature; name_, email: PAnsiChar; time: git_time_t;
+function git_signature_new(out out_: Pgit_signature; name_, email: PAnsiChar; time: git_time_t;
   offset: Integer): Integer; cdecl; external libgit2_dll;
 
 (**
@@ -36,7 +36,7 @@ function git_signature_new(out_: PPgit_signature; name_, email: PAnsiChar; time:
  * @return 0 or an error code
  *)
 
-function git_signature_now(out_: PPgit_signature; name_, email: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_signature_now(out out_: Pgit_signature; name_, email: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Create a new action signature with default user and now timestamp.
@@ -51,7 +51,7 @@ function git_signature_now(out_: PPgit_signature; name_, email: PAnsiChar): Inte
  * @return 0 on success, GIT_ENOTFOUND if config is missing, or error code
  *)
 
-function git_signature_default(out_: PPgit_signature; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
+function git_signature_default(out out_: Pgit_signature; repo: Pgit_repository): Integer; cdecl; external libgit2_dll;
 
 (**
  * Create a new signature by parsing the given buffer, which is
@@ -65,7 +65,7 @@ function git_signature_default(out_: PPgit_signature; repo: Pgit_repository): In
  * @return 0 on success, GIT_EINVALID if the signature is not parseable, or an error code
  *)
 
-function git_signature_from_buffer(out_: PPgit_signature; buf: PAnsiChar): Integer; cdecl; external libgit2_dll;
+function git_signature_from_buffer(out out_: Pgit_signature; buf: PAnsiChar): Integer; cdecl; external libgit2_dll;
 
 (**
  * Create a copy of an existing signature.  All internal strings are also
